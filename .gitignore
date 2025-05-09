@@ -3,3 +3,4 @@
 *.exe
 build
 __pycache__
+*:Zone.Identifier
