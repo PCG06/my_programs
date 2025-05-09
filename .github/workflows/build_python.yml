@@ -53,7 +53,8 @@ jobs:
                }" \
                ${{ secrets.DISCORD_WEBHOOK_4 }}
 
-      - name: Send notification to Discord
+      # Failure notification step
+      - name: Send failure notification to Discord
         if: failure()
         shell: bash 
         run: |
