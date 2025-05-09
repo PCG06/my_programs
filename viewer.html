@@ -1,0 +1,182 @@
+<!--
+  I DID NOT WRITE THIS 
+  Generated through DeepSeek - I do not know complicated HTML 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Website icon -->
+  <link rel="icon" href="logo/favicon.ico" type="image/x-icon">
+  <!-- Link preview (Open Graph)-->
+  <meta property="og:title" content="My Programs">
+  <meta property="og:description" content="This repository contains an archive of my C and Python code.">
+  <meta property="og:url" content="https://pcg06.github.io">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Viewer | My Programs</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f5f5f5;
+        color: #333;
+      }
+      header {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      h1 {
+        color: #2c3e50;
+        margin: 0;
+        font-size: 1.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 300px;
+      }
+      .action-buttons {
+        display: flex;
+        gap: 8px;
+      }
+      .action-btn {
+        background: #2c3e50;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .action-btn:hover {
+        background: #34495e;
+      }
+      pre[class*="language-"] {
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      .file-info {
+        background: #2a2a2a;
+        color: #f8f8f2;
+        padding: 10px 15px;
+        border-radius: 8px 8px 0 0;
+        font-family: monospace;
+        margin-bottom: -5px;
+      }
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .action-buttons {
+          width: 100%;
+          justify-content: flex-end;
+        }
+    }
+  </style>
+</head>
+<!-- Body -->
+<body>
+  <header>
+    <div class="header-left">
+      <a href="index.html" class="action-btn">← Back</a>
+      <h1 id="filename">Code Viewer</h1>
+    </div>
+    <div class="action-buttons">
+      <button id="copy-btn" class="action-btn">Copy Code</button>
+      <button id="download-btn" class="action-btn">Download</button>
+    </div>
+  </header>
+
+  <div class="file-info" id="file-path">Loading...</div>
+  <pre class="line-numbers"><code id="code-display"></code></pre>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const filePath = params.get('file');
+      
+      if (!filePath) {
+        document.getElementById('code-display').textContent = 'Error: No file specified in URL';
+        return;
+      }
+
+      // Update UI
+      document.getElementById('file-path').textContent = filePath;
+      const fileName = filePath.split('/').pop();
+      document.getElementById('filename').textContent = fileName;
+      
+      // Determine language
+      const codeElement = document.getElementById('code-display');
+      const extension = filePath.split('.').pop().toLowerCase();
+      const language = extension === 'py' ? 'python' : 'c';
+      codeElement.className = `language-${language}`;
+      
+      // Fetch and display code
+      fetch(filePath)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          return response.text();
+        })
+        .then(code => {
+          codeElement.textContent = code;
+          Prism.highlightAll();
+          
+          // Copy functionality
+          const copyBtn = document.getElementById('copy-btn');
+          copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(code)
+              .then(() => {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => copyBtn.textContent = 'Copy Code', 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                copyBtn.textContent = 'Error';
+                setTimeout(() => copyBtn.textContent = 'Copy Code', 2000);
+              });
+          });
+          
+          // Download functionality
+          const downloadBtn = document.getElementById('download-btn');
+          downloadBtn.addEventListener('click', () => {
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          });
+        })
+        .catch(error => {
+          codeElement.textContent = `Error loading file: ${error}\n\nPath: ${filePath}`;
+          console.error('Fetch error:', error);
+        });
+    });
+  </script>
+</body>
+</html>
