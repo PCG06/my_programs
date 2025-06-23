@@ -1,0 +1,17 @@
+.vscode/
+build
+.class
+*.log
+*.jar
+*.war
+*.ear
+.project
+.classpath
+.settings/
+bin/
+.idea/
+*.iml
+out/
+.DS_Store
+*.swp
+*:Zone.Identifier
