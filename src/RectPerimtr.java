@@ -1,8 +1,8 @@
-// Simple java program to calculate area of a rectangle
+// Simple java program to calculate perimeter of a rectangle
 
 import java.util.Scanner;
 
-public class RectArea
+public class RectPerimtr
 {
     public static void main(String[] args)
     {
@@ -14,9 +14,9 @@ public class RectArea
         System.out.print("Enter the breadth: ");
         int b = sc.nextInt();
 
-        int area = l * b;
+        int peri = 4 * (l + b);
 
-        System.out.println("The area of the rectangle is " + area);
+        System.out.println("The perimeter of the rectangle is " + peri);
 
         sc.close();
     }
