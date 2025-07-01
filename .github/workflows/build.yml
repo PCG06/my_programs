@@ -20,3 +20,59 @@ jobs:
 
     - name: Compile All Java Files
       run: make -j$(nproc)
+
+    # Success notification step
+    - name: Send success notification to Discord
+      if: success()
+      shell: bash 
+      run: |
+        COMMIT_HASH="${GITHUB_SHA:0:6}"
+        curl -H "Content-Type: application/json" \
+             -X POST \
+             -d "{
+               \"embeds\": [{
+                 \"title\": \"CI job succeeded on branch: ${{ github.ref_name }}\",
+                 \"color\": 65280,
+                 \"fields\": [
+                   {
+                     \"name\": \"Commit:\",
+                     \"value\": \"[\`$COMMIT_HASH\`](<${{ github.event.head_commit.url }}>)\",
+                     \"inline\": false
+                   },
+                   {
+                     \"name\": \"Committed by:\",
+                     \"value\": \"[${{ github.actor }}](https://github.com/${{ github.actor }})\",
+                     \"inline\": false
+                   }
+                 ]
+               }]
+             }" \
+             ${{ secrets.DISCORD_WEBHOOK_4 }}
+
+    # Failure notification step
+    - name: Send failure notification to Discord
+      if: failure()
+      shell: bash 
+      run: |
+        COMMIT_HASH="${GITHUB_SHA:0:7}"
+        curl -H "Content-Type: application/json" \
+             -X POST \
+             -d "{
+               \"embeds\": [{
+                 \"title\": \"CI job failed on branch: ${{ github.ref_name }}\",
+                 \"color\": 16711680,
+                 \"fields\": [
+                   {
+                     \"name\": \"Commit:\",
+                     \"value\": \"[\`$COMMIT_HASH\`](<${{ github.event.head_commit.url }}>)\",
+                     \"inline\": false
+                   },
+                   {
+                     \"name\": \"Committed by:\",
+                     \"value\": \"[${{ github.actor }}](https://github.com/${{ github.actor }})\",
+                     \"inline\": false
+                   }
+                 ]
+               }]
+             }" \
+             ${{ secrets.DISCORD_WEBHOOK_4 }}
