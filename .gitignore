@@ -14,4 +14,9 @@ bin/
 out/
 .DS_Store
 *.swp
+.Rhistory
+.Rapp.history
+.RData
+.Rproj.user/
+.Ruserdata
 *:Zone.Identifier
