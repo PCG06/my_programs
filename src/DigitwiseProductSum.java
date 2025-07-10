@@ -21,7 +21,7 @@ public class DigitwiseProductSum
         {
             rem1 = a % 10;
             rem2 = b % 10;
-            sum = sum + (rem1 * rem2);
+            sum += (rem1 * rem2);
             a /= 10;
             b /= 10;
         }
