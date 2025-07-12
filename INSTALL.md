@@ -40,7 +40,7 @@ Install JDK:
 
 ```bash
 sudo apt update
-sudo apt install openjdk-17-jdk
+sudo apt install openjdk-21-jdk
 ```
 
 Verify installation:
@@ -57,7 +57,7 @@ javac -version
 Install with Homebrew:
 
 ```bash
-brew install openjdk@17
+brew install openjdk@21
 ```
 
 Verify installation:
