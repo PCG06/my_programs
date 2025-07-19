@@ -35,8 +35,8 @@ public class JaggedMatrix
             int rowNum = i + 1;
             int sum = 0;
 
-            for (int val : matrix[i])
-                sum += val;
+            for (int j = 0; j < matrix[i].length; j++)
+                sum += matrix[i][j];
 
             System.out.println("Sum of row " + rowNum + ": " + sum);
         }
