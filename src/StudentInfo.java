@@ -23,7 +23,7 @@ public class StudentInfo
 
         System.out.print("Enter marks in 3 subjects: ");
         // Can do without arrays too, but arrays are cool
-        int marks[] = new int[3]; // Gotta init first
+        int[] marks = new int[3]; // Gotta init first
         int total = 0;
         for (int i = 0; i < 3; i++)
         {
