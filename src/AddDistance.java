@@ -9,10 +9,9 @@ import java.util.Scanner;
 
 class Distance
 {
-    int feet;
-    double inches;
+    int feet, inches;
 
-    Distance(int f, double i)
+    Distance(int f, int i)
     {
         feet = f;
         inches = i;
@@ -38,19 +37,18 @@ class AddDistance
 
         System.out.print("Enter 1st distance feet and inches: ");
         int f1 = sc.nextInt();
-        double i1 = sc.nextDouble();
+        int i1 = sc.nextInt();
 
         System.out.print("Enter 2nd distance feet and inches: ");
         int f2 = sc.nextInt();
-        double i2 = sc.nextDouble();
+        int i2 = sc.nextInt();
 
         Distance d1 = new Distance(f1, i1);
         Distance d2 = new Distance(f2, i2);
         Distance total = new Distance(0, 0);
 
         total.sum(d1, d2);
-        System.out.println("Total feet: " + total.feet);
-        System.out.println("Total inches: " + total.inches);
+        System.out.println("Added distance is " + total.feet + " feet and " + total.inches + " inches");
         sc.close();
     }
 }
