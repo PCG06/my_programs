@@ -1,7 +1,7 @@
 /*
 Program 10:
     Define a class Distance with objects feet and inches, constructor to read the values and a method sum() to add two feet and inches.
-    Inches should be less than 12.
+    If total inches is greater than 12, minus it by 12 and increment feet.
     Display the total distance using a separate class.
 */
 
@@ -16,6 +16,8 @@ class Distance
         feet = f;
         inches = i;
     }
+
+    Distance() {}
 
     void sum(Distance d1, Distance d2)
     {
@@ -45,10 +47,10 @@ class AddDistance
 
         Distance d1 = new Distance(f1, i1);
         Distance d2 = new Distance(f2, i2);
-        Distance total = new Distance(0, 0);
+        Distance total = new Distance();
 
         total.sum(d1, d2);
-        System.out.println("Added distance is " + total.feet + " feet and " + total.inches + " inches");
+        System.out.println("Sum of distances: " + total.feet + "\" " + total.inches + "'");
         sc.close();
     }
 }
