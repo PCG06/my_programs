@@ -1,6 +1,6 @@
 # R script to create a list containing strings, numerics, vectors and logical values and perform operations
 
-my_list = list("apple", 100, 1:5, TRUE)
+my_list <- list("apple", 100, 1:5, TRUE)
 cat("List elements are:\n")
 print(my_list)
 
@@ -9,7 +9,7 @@ cat("\nFirst element in the list:\n")
 print(my_list[[1]])
 
 # Give names to the elements in the list
-names(my_list) = c("fruit", "number", "vector", "flag")
+names(my_list) <- c("fruit", "number", "vector", "flag")
 cat("\nList with named elements:\n")
 print(my_list)
 
