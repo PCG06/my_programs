@@ -1,6 +1,6 @@
 .vscode/
 build
-.class
+*.class
 *.log
 *.jar
 *.war
