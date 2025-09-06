@@ -1,8 +1,11 @@
 # R script to create a choice menu with Armstrong and Palindrome number options
 
 repeat {
-    cat("1: Armstrong\n2: Palindrome\n3: Exit\n")
-    ch <- readline(prompt="Enter your choice: ")
+    cat("---Menu---\n")
+    cat("1: Armstrong\n")
+    cat("2: Palindrome\n")
+    cat("3: Exit\n")
+    ch <- readline(prompt="\nEnter your choice: ")
 
     if (ch == 1) { # Armstrong
         num <- as.integer(readline(prompt="Enter a 3 digit number: "))
