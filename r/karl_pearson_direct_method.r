@@ -15,7 +15,7 @@ data <- data.frame(
     "Ysq" = Ysq
 )
 
-cat("\n---Mean data---\n")
+cat("\n---Data---\n")
 print(data, right=FALSE, row.names=FALSE)
 
 n <- length(X)
@@ -36,7 +36,7 @@ r <- (((n * sumXY) - (sumX * sumY)) / sqrt((n * sumXsq - (sumX^2)) * (n * sumYsq
 
 cat("\n\nKarl Pearson's Correlation Coefficient (r):", r)
 
-cat("\nCorrelation type:\n")
+cat("\nCorrelation type: ")
 if (r > 0) {
     cat("Positive\n")
 } else if (r < 0) {
