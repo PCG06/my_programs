@@ -21,7 +21,7 @@ public class ExceptionHandling
     {
         Scanner sc = new Scanner(System.in);
 
-        int[] arr;
+        int[] arr = null;
 
         try
         {
@@ -30,7 +30,7 @@ public class ExceptionHandling
             arr = new int[n];
 
             System.out.print("Enter " + n + " elements: ");
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i <= n; i++)
             {
                 int ele = sc.nextInt();
                 if (ele == 0)
@@ -38,11 +38,6 @@ public class ExceptionHandling
                     throw new ZeroElementException("Array element cannot be zero! (at index: " + i + ")");
                 }
                 arr[i] = ele;
-            }
-            System.out.println("Array elements and their indexes");
-            for (int i = 0; i <= n; i++) // purposely done to cause 'ArrayIndexOutOfBoundsException()'
-            {
-                System.out.println("Index " + i + ": " + arr[i]);
             }
         }
         catch (ZeroElementException e)
@@ -53,12 +48,13 @@ public class ExceptionHandling
         {
             System.out.println("Array index out of bounds exception caught: " + e.getMessage());
         }
-        catch (Exception e)
-        {
-            System.out.println("General exception caught: " + e.getMessage());
-        }
         finally
         {
+            System.out.println("\nArray elements and their indexes:");
+            for (int i = 0; i < arr.length; i++) // purposely done to cause 'ArrayIndexOutOfBoundsException()'
+            {
+                System.out.println("Index " + i + ": " + arr[i]);
+            }
             sc.close();
         }
     }
