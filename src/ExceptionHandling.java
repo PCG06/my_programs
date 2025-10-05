@@ -30,7 +30,7 @@ public class ExceptionHandling
             arr = new int[n];
 
             System.out.print("Enter " + n + " elements: ");
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i <= n; i++) // purposely done to cause 'ArrayIndexOutOfBoundsException()'
             {
                 int ele = sc.nextInt();
                 if (ele == 0)
@@ -51,7 +51,7 @@ public class ExceptionHandling
         finally
         {
             System.out.println("\nArray elements and their indexes:");
-            for (int i = 0; i < arr.length; i++) // purposely done to cause 'ArrayIndexOutOfBoundsException()'
+            for (int i = 0; i < arr.length; i++)
             {
                 System.out.println("Index " + i + ": " + arr[i]);
             }

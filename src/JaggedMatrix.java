@@ -5,41 +5,28 @@ Program 7:
 
 import java.util.Scanner;
 
-public class JaggedMatrix
+class JaggedMatrix
 {
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
+        int[][] arr = {{1, 2, 3, 4}, {5, 6, 7}, {8, 9}};
 
-        System.out.print("Enter the number of rows: ");
-        int row = sc.nextInt();
-
-        int[][] matrix = new int[row][]; // Create a 2D array with known row size
-        for (int i = 0; i < row; i++)
+        System.out.println("Array elements are:");
+        for (int i = 0; i < arr.length; i++)
         {
-            int rowNum = i + 1;
-            System.out.print("Enter number of columns for row " + rowNum + ": ");
-            int cols = sc.nextInt();
-            matrix[i] = new int[cols]; // Now with different column size
-
-            System.out.print("Enter " + cols + " values for row " + rowNum + ": ");
-            for (int j = 0; j < cols; j++)
-                matrix[i][j] = sc.nextInt();
+            System.out.print("Row " + (i + 1) + ": ");
+            for (int j = 0; j < arr[i].length; j++)
+                System.out.print(arr[i][j] + " ");
+            System.out.println();
         }
 
-        // Calculate and print row-wise sums
-        System.out.println("\nRow-wise sums:");
-        for (int i = 0; i < row; i++)
+        System.out.println("\nSum of individual rows:");
+        for (int i = 0; i < arr.length; i++)
         {
-            int rowNum = i + 1;
             int sum = 0;
-
-            for (int j = 0; j < matrix[i].length; j++)
-                sum += matrix[i][j];
-
-            System.out.println("Sum of row " + rowNum + ": " + sum);
+            for (int j = 0; j < arr[i].length; j++)
+                sum += arr[i][j];
+            System.out.println("Row " + (i + 1) + ": " + sum);
         }
-
-        sc.close();
     }
 }
