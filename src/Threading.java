@@ -52,7 +52,6 @@ class Number extends Thread
     public void run()
     {
         Random rng = new Random();
-        int n = 10;
 
         for (int i = 0; i < n; i++)
         {
