@@ -6,7 +6,7 @@ after <- c(24, 22, 19, 22, 28, 26, 28, 24, 30, 29, 25, 20, 17, 18, 18, 28, 26, 2
 result <- t.test(before, after, paired=TRUE, alternative="two.sided", conf.level=0.99)
 print(result)
 
-if (result$p.value < 0.05) {
+if (result$p.value < 0.01) {
     cat("Result: Alternative hypothesis is accepted\n")
     cat("The means are significantly different\n")
     cat("The training program has improved students' performance\n")

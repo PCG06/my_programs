@@ -1,6 +1,6 @@
 # R script to create a factor for marital status and perform operations on it
 
-marital_status <- factor(c("married", "single", "divorced"))
+marital_status <- factor(c("married", "single", "divorced", "married", "divorced"))
 
 cat("The marital status factor:\n")
 print(marital_status)
@@ -25,7 +25,8 @@ cat("\nModified second element from the factor:\n")
 marital_status[2] <- "married"
 print(marital_status)
 
-# Add a new level "widow" to the factor
+# Add a new level "widowed" to the factor
 cat("\nAdding new level to the factor:\n")
-levels(marital_status) <- c(levels(marital_status), "widow")
-print(levels(marital_status))
+levels(marital_status) <- c(levels(marital_status), "widowed")
+marital_status[5] <- "widowed"
+print(marital_status)

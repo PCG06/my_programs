@@ -27,8 +27,8 @@ range_val <- range_values[2] - range_values[1]
 cat("\n\nRange:", range_val)
 
 # 35th and 78th percentile
-perc_35 <- quantile(data, 0.35)
-perc_78 <- quantile(data, 0.78)
+perc_35 <- quantile(data, 0.35, type=6)
+perc_78 <- quantile(data, 0.78, type=6)
 cat("\n\nValue of 35th percentile:", perc_35)
 cat("\nValue of 78th percentile:", perc_78)
 
@@ -39,8 +39,8 @@ variance <- var(data)
 cat("\nVariance:", variance)
 
 # Inter-quartile range
-q1 <- quantile(data, 0.25)
-q3 <- quantile(data, 0.75)
+q1 <- quantile(data, 0.25, type=6)
+q3 <- quantile(data, 0.75, type=6)
 iqr <- q3 - q1
 cat("\n\nInter-quartile range:", iqr)
 
