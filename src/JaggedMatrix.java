@@ -3,8 +3,6 @@ Program 7:
     Create a matrix having various different number of columns for each row and print row wise sum
 */
 
-import java.util.Scanner;
-
 class JaggedMatrix
 {
     public static void main(String[] args)
