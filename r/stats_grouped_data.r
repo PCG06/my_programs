@@ -1,8 +1,12 @@
 # R script to create a choice menu with mean, median, mode of grouped data as options
 
-lower <- as.numeric(unlist(strsplit(readline(prompt="Enter lower limits: "), ", ")))
-upper <- as.numeric(unlist(strsplit(readline(prompt="Enter upper limits: "), ", ")))
-freq <- as.numeric(unlist(strsplit(readline(prompt="Enter frequencies: "), ", ")))
+# lower <- as.numeric(unlist(strsplit(readline(prompt="Enter lower limits: "), ", ")))
+# upper <- as.numeric(unlist(strsplit(readline(prompt="Enter upper limits: "), ", ")))
+# freq <- as.numeric(unlist(strsplit(readline(prompt="Enter frequencies: "), ", ")))
+
+lower <- c(0, 10, 20, 30, 40, 50)
+upper <- c(10, 20, 30, 40, 50, 60)
+freq <- c(2, 3, 7, 8, 3, 5)
 ci <- paste(lower, "-", upper)
 
 repeat {
@@ -31,10 +35,9 @@ repeat {
         print(data, right=FALSE, row.names=FALSE)
         cat("\nSum of fx:", sum_fx)
         cat("\nSum of freq:", sum_freq)
-        cat("\n\nMean:", mean_value, "\n\n")
+        cat("\n\nMean:", round(mean_value, 4), "\n\n")
     } else if (ch == 2) { # Median
         cum_freq <- cumsum(freq)
-        sum_cf <- sum(cum_freq)
         n <- sum(freq)
         for (i in 1:length(cum_freq)) {
             if (cum_freq[i] >= n / 2) {
@@ -66,7 +69,7 @@ repeat {
         cat("\nFrequency of median class:", f)
         cat("\nCumulative frequency of median class:", F)
         cat("\nHeight of median class:", h)
-        cat("\n\nMedian:", median_value, "\n\n")
+        cat("\n\nMedian:", round(median_value, 4), "\n\n")
     } else if (ch == 3) { # Mode
         modal_index <- which.max(freq)
         l <- lower[modal_index]
@@ -97,7 +100,7 @@ repeat {
         cat("\nFrequency of modal class:", f1)
         cat("\nFrequency of class below modal class:", f2)
         cat("\nHeight of modal class:", h)
-        cat("\n\nMode:", mode_value, "\n\n")
+        cat("\n\nMode:", round(mode_value, 4), "\n\n")
     } else if (ch == 4) { # Exit
         cat("Exiting...\n")
         break

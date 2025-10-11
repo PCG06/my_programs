@@ -39,6 +39,7 @@ variance <- var(data)
 cat("\nVariance:", variance)
 
 # Inter-quartile range
+# Alternate: IQR(data, type=6)
 q1 <- quantile(data, 0.25, type=6)
 q3 <- quantile(data, 0.75, type=6)
 iqr <- q3 - q1
