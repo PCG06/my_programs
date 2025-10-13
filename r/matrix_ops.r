@@ -11,20 +11,20 @@ print(B)
 
 # Transpose of A * B
 W <- t(A) %*% B
-cat("Tranpose of A * B\n")
+cat("\nTranpose of A * B\n")
 print(W)
 
 # Transpose of B * (A * tranpose of A)
 X <- t(B) %*% (A %*% t(A))
-cat("Transpose of B * (A * tranpose of A)\n")
+cat("\nTranspose of B * (A * tranpose of A)\n")
 print(X)
 
 # Transpose of (A * tranpose of A) * B
 Y <- (A %*% t(A)) %*% t(B)
-cat("Transpose of (A * tranpose of A) * B\n")
+cat("\nTranspose of (A * tranpose of A) * B\n")
 print(Y)
 
 # Transpose of [(B * tranpose of B) + (A * tranpose of A)]
 Z <- (B %*% t(B)) + (A %*% t(A))
-cat("Transpose of [(B * tranpose of B) + (A * tranpose of A)]\n")
+cat("\nTranspose of [(B * tranpose of B) + (A * tranpose of A)]\n")
 print(Z)

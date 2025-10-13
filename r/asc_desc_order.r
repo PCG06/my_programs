@@ -1,7 +1,6 @@
 # R script to check if the vector elements are in ascending, descending, equal or random order
 
-cat("Enter vector elements:\n")
-vec <- scan()
+vec <- as.numeric(unlist(strsplit(readline(prompt="Enter vector elements: "), ", ")))
 
 cat("Vector elements are:\n")
 print(vec)
