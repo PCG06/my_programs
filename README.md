@@ -8,6 +8,9 @@ See [INSTALL.md](INSTALL.md) for setup and usage instructions.
 
 ### Topics Include:
 * Classes and objects.
-* Constructors and method overloading.
+* Constructors.
+* Method overloading and overriding.
 * Inheritance and polymorphism.
 * Encapsulation and abstraction.
+* Threading and exceptions.
+* File manipulation.
