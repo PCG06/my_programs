@@ -1,0 +1,82 @@
+<!-- HTML program to create a student form -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Registration Form</title>
+    </head>
+    <body>
+    <h1>Student Registration</h1>
+    <p style="text-align:right;">
+        Location: Place<br>
+        2023-02-25
+    </p>
+    <p style="background-color: green; padding:5px;">
+        Student Data
+    </p>
+
+    <center>
+    <form>
+
+        <label>Name:</label>
+        <input type="text" name="fname">
+        <br><br>
+
+        <label>Surname:</label>
+        <input type="text" name="sname">
+        <br><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob">
+        <br><br>
+
+        <label>Sex:</label>
+        <input type="radio" name="sex" value="male"> Male
+        <input type="radio" name="sex" value="female"> Female
+        <br><br>
+
+        <label>Phone:</label>
+        <input type="number" name="phone">
+        <br><br>
+
+        <label>Address:</label><br>
+        <textarea name="address" rows="4" cols="40"></textarea>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email">
+        <br><br>
+
+        <label>10<sup>th</sup> marks card:</label>
+        <input type="file" name="marks10">
+        <br><br>
+
+        <label>12<sup>th</sup> marks card:</label>
+        <input type="file" name="marks12"
+        ><br><br>
+
+        <label>Course:</label>
+        <select name="course">
+            <option value="ba">BA</option>
+            <option value="bba">BBA</option>
+            <option value="bca">BCA</option>
+            <option value="bcom">BCom</option>
+            <option value="bsc">BSc</option>
+        </select>
+        <br><br>
+
+        <label>
+            <input type="checkbox" name="agree">
+            I agree to <a href="https://github.com" target="_blank" style="color:#9cf;">Terms and Conditions</a>
+        </label>
+        <br><br>
+
+        <center>
+            <input type="reset" value="Reset" style="margin-right:10px;">
+            <input type="submit" value="Submit">
+        </center>
+    </form>
+    </center>
+
+</body>
+</html>
