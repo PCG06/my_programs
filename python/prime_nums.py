@@ -1,6 +1,6 @@
 """
     Program 1:
-    Python script to print prime numnbers within range 'm' to 'n'
+    Python script to print prime numnbers within range 'm' to 'n'.
 """
 
 start = int(input("Enter the minimum range: "))
