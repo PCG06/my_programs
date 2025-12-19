@@ -1,0 +1,87 @@
+<!-- HTML program to show time table -->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Time Table</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+            td, th {
+                height: 30px; 
+                text-align: center;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 align="center">Time Table</h1>
+        <table border="1" align="center" cellpadding="10" cellspacing="0">
+
+        <tr>
+            <th>Days</th>
+            <th>1<br><sup>9:00 - 9:50</sup></th>
+            <th>2<br><sup>9:55 - 10:45</th>
+            <th>3<br><sup>10:50 - 11:40</th>
+            <th>4<br><sup>11:45 - 12:35</th>
+            <th>Lunch<br><sup>12:35 - 1:25</th>
+            <th>5<br><sup>1:35 - 2:20</th>
+            <th>6<br><sup>2:25 - 3:15</th>
+        </tr>
+
+        <tr>
+            <td>Monday</td>
+            <td>PY</td>
+            <td>CONA</td>
+            <td>FL</td>
+            <td>LIB<br><sup>(free)</sup></td>
+            <td rowspan="5" align="center"></td>
+            <td colspan="2">PY LAB</td>
+        </tr>
+
+        <tr>
+            <td>Tuesday</td>
+            <td>PHP</td>
+            <td>PY</td>
+            <td>SE</td>
+            <td>SWYM</td>
+        </tr>
+
+        <tr>
+            <td>Wednesday</td>
+            <td colspan="2">PHP LAB</td>
+            <td>SE</td>
+            <td>CONA</td>
+        </tr>
+
+        <tr>
+            <td>Thursday</td>
+            <td>CONA</td>
+            <td>PHP</td>
+            <td>FL</td>
+            <td>FC</td>
+            <td colspan="2">PY LAB</td>
+        </tr>
+
+        <tr>
+            <td>Friday</td>
+            <td>LIB<br><sup>(free)</sup></td>
+            <td>FC</td>
+            <td>PY</td>
+            <td>PHP</td>
+            <td colspan="2">EC/CC</td>
+        </tr>
+
+        <tr>
+            <td>Saturday</td>
+            <td>FL</td>
+            <td>VE</td>
+            <td colspan="2">PHP LAB</td>
+        </tr>
+    </table>
+</body>
+</html>
