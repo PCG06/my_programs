@@ -10,17 +10,54 @@
                 border-collapse: collapse;
                 table-layout: fixed;
             }
-            td, th {
+            #table {
                 height: 30px; 
                 text-align: center;
                 vertical-align: middle;
+                border-spacing: 0px
+            }
+            .py {
+                background-color: turquoise;
+            }
+            .pylab {
+                background-color: cyan;
+            }
+            .php {
+                background-color: indigo;
+            }
+            .phplab {
+                background-color: purple;
+            }
+            .cona {
+                background-color: olive;
+            }
+            .se {
+                background-color: yellow;
+            }
+            .fl {
+                background-color: violet;
+            }
+            .fc {
+                background-color: brown;
+            }
+            .ve {
+                background-color: brown;
+            }
+            .lib {
+                background-color: salmon;
+            }
+            .swym {
+                background-color: salmon;
+            }
+            .eccc {
+                background-color: slategray;
             }
         </style>
     </head>
 
     <body>
         <h1 align="center">Time Table</h1>
-        <table border="1" align="center" cellpadding="10" cellspacing="0">
+        <table id="table" border="1" align="center" cellpadding="10" cellspacing="0">
 
         <tr>
             <th>Days</th>
@@ -35,52 +72,53 @@
 
         <tr>
             <td>Monday</td>
-            <td>PY</td>
-            <td>CONA</td>
-            <td>FL</td>
-            <td>LIB<br><sup>(free)</sup></td>
-            <td rowspan="5" align="center"></td>
-            <td colspan="2">PY LAB</td>
+            <td class="py">PY</td>
+            <td class="cona">CONA</td>
+            <td class="fl">FL</td>
+            <td class="lib">LIB<br><sup>(free)</sup></td>
+            <td rowspan="5"></td>
+            <td class="pylab" colspan="2">PY LAB</td>
         </tr>
 
         <tr>
             <td>Tuesday</td>
-            <td>PHP</td>
-            <td>PY</td>
-            <td>SE</td>
-            <td>SWYM</td>
+            <td class="php">PHP</td>
+            <td class="py">PY</td>
+            <td class="se">SE</td>
+            <td class="swym">SWYM</td>
         </tr>
 
         <tr>
             <td>Wednesday</td>
-            <td colspan="2">PHP LAB</td>
-            <td>SE</td>
-            <td>CONA</td>
+            <td class="phplab" colspan="2">PHP LAB</td>
+            <td class="se">SE</td>
+            <td class="cona">CONA</td>
         </tr>
 
         <tr>
             <td>Thursday</td>
-            <td>CONA</td>
-            <td>PHP</td>
-            <td>FL</td>
-            <td>FC</td>
-            <td colspan="2">PY LAB</td>
+            <td class="cona">CONA</td>
+            <td class="php">PHP</td>
+            <td class="fl">FL</td>
+            <td class="fc">FC</td>
+            <td class="pylab" colspan="2">PY LAB</td>
         </tr>
 
         <tr>
             <td>Friday</td>
-            <td>LIB<br><sup>(free)</sup></td>
-            <td>FC</td>
-            <td>PY</td>
-            <td>PHP</td>
-            <td colspan="2">EC/CC</td>
+            <td class="lib">LIB<br><sup>(free)</sup></td>
+            <td class="fc">FC</td>
+            <td class="py">PY</td>
+            <td class="php">PHP</td>
+            <td class="se">SE</td>
+            <td class="eccc" colspan="2">EC/CC</td>
         </tr>
 
         <tr>
             <td>Saturday</td>
-            <td>FL</td>
-            <td>VE</td>
-            <td colspan="2">PHP LAB</td>
+            <td class="fl">FL</td>
+            <td class="ve">VE</td>
+            <td class="phplab" colspan="2">PHP LAB</td>
         </tr>
     </table>
 </body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lists in Boxes</title>
+
+    <style>
+        .box {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            float: left;
+        }
+
+        /* Box 1 */
+        .red {
+            border: 5px solid red;
+        }
+        .red ol {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+
+        /* Box 2 */
+        .gray {
+            border: 5px solid gray;
+        }
+        .gray ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+
+        /* Box 3 */
+        .blue {
+            border: 5px solid blue;
+        }
+        .image-list {
+            list-style-image: url("bullet.png");
+            list-style-position: inside;
+            padding-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box red">
+    <h3>Ordered List</h3>
+    <ol>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ol>
+</div>
+
+<div class="box gray">
+    <h3>Unordered List</h3>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+    </ul>
+</div>
+
+<div class="box blue">
+    <h3>Image Bullet List</h3>
+    <ul class="image-list">
+        <li>Item One</li>
+        <li>Item Two</li>
+        <li>Item Three</li>
+    </ul>
+</div>
+
+<div style="clear:both;"></div>
+
+</body>
+</html>
