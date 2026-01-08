@@ -1,7 +1,6 @@
 # Python script to find greater of 2 numbers
 
-a = int(input("Enter a number: "))
-b = int(input("Enter another number: "))
+a, b = map(int, input("Enter two numbers: ").split())
 
 c = a if a > b else b
 

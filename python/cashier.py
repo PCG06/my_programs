@@ -1,6 +1,6 @@
 """
     Program 3:
-    Cashier has current notes of 5, 10, 20, 50, 100, 200 and 500.
+    Cashier has currency notes of 5, 10, 20, 50, 100, 200 and 500.
     Write a Python script to display number of currency notes of each denomination that the cashier
     has to give to the customer for a given amount.
     Display an error message if entered amount is not divisible by 5.
