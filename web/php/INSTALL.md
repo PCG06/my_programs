@@ -97,16 +97,46 @@ php file.php
 From inside your project folder:
 
 ```bash
-php -S localhost:8000
+php -S localhost:8000 # Replace 8000 with your port number. I chose 8000 because its common.
 ```
 
-Then visit:
+Then visit: `http://localhost:8000`
 
-```
-http://localhost:8000
-```
 
 This is perfect for testing simple web pages.
+
+If you're getting an error like `Address already in use`, kill the process by following these steps (Linux):
+
+```bash
+sudo lsof -i: 8000
+```
+
+You will get output like this:
+
+```
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+php     1234  pcg    **  IPv4  *****      0t0  TCP localhost:8000 (LISTEN)
+```
+
+Kill the PID
+
+```bash
+sudo kill 1234
+```
+
+If that doesn't work, try:
+
+```bash
+sudo kill -9 1234
+```
+
+| Arg | Signal  | Meaning                       |
+|-----|---------|-------------------------------|
+| -15 | SIGTERM | Terminates (default)          |
+| -2  | SIGINT  | Interrupts (same as Ctrl+C)   |
+| -9  | SIGKILL | Forcefully terminates (risky) |
+
+If there's no output, the port is free and you can run it.
 
 ---
 

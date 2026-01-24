@@ -53,7 +53,7 @@
                 echo "<br>Please select an operation";
                 exit;
         }
-        echo "<br><br>Result: ", ($result ? "TRUE" : "FALSE"), "<br>";
+        echo "<br><br>Result: " . ($result ? "TRUE" : "FALSE") . "<br>";
     }
     ?>
 </body>
