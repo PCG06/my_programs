@@ -1,7 +1,10 @@
-<!-- PHP webpage to showcase comparison operators -->
+<!-- PHP webpage to use comparison operators to compare two numbers -->
 
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Comparison operators in PHP</title>
+</head>
 <body>
     <h3>Comparison operators in PHP</h3>
     <form method="post">
