@@ -1,4 +1,7 @@
-<!-- PHP webpage to validate form ? -->
+<!--
+    Program 6:
+    PHP webpage to validate the user form
+-->
 
 <!DOCTYPE html>
 <html>

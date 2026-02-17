@@ -1,4 +1,7 @@
-<!-- PHP webpage to use comparison operators to compare two numbers -->
+<!--
+    Program 7:
+    PHP webpage to use illustrate the use of comparison operators
+-->
 
 <!DOCTYPE html>
 <html>

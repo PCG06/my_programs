@@ -1,0 +1,32 @@
+/* Program 4: CSS for styled lists */
+
+.red {
+    border: 15px solid red;
+    background: red;
+}
+
+.pink {
+    border: 15px solid pink;
+    border-left: 1px;
+    background: pink;
+}
+
+.blue {
+    border: 15px solid blue;
+    border-left: 1px;
+    background: blue;
+}
+
+.red li {
+    background: aliceblue;
+}
+
+.pink li {
+    background: aliceblue;
+}
+
+.blue li {
+    background: aliceblue;
+    list-style-image: url("bin/check.png");
+    list-style-position: inside;
+}

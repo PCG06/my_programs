@@ -1,4 +1,7 @@
-<!-- PHP webpage to input a text and numeric array for item names and prices and find costliest and cheapest items -->
+<!--
+    Program 8:
+    PHP webpage to calculate the costliest and cheapest items from a list using array functions
+-->
 
 <html>
 <head>
