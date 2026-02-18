@@ -1,5 +1,5 @@
 <!-- 
-    Program 10:
+    Program 9:
     PHP webpage to use form with numerical functions
 -->
 
