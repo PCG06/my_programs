@@ -1,5 +1,5 @@
 """
-    Program 14:
+    Program 13:
     Python script to read student marks and calculate the result using class and constructors
 """
 
