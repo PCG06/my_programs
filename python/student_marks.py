@@ -35,7 +35,7 @@ class Student:
 
 name = input("Enter name: ")
 regno = int(input("Enter reg no: "))
-m1, m2, m3, m4 = map(int, input("Enter makrs in Python, CONA, OS, FA: ").split())
+m1, m2, m3, m4 = map(int, input("Enter marks in Python, CONA, OS, FA: ").split())
 st = Student(name, regno)
 st.read_marks(m1, m2, m3, m4)
 st.calc_result()

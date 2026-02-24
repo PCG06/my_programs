@@ -31,7 +31,7 @@ cur.execute("""
                 Price     INT,
                 Copies    INT
             )
-            """)
+""")
 
 class Library:
 

@@ -33,7 +33,7 @@ cur.execute("""
                 Gross   INT,
                 NetPay  INT
             )
-            """)
+""")
 
 while True:
     print("---Menu---")
@@ -83,5 +83,5 @@ while True:
 
     # Default
     else:
-        print("Invalid choice! Enter again")
+        print("Invalid choice! Enter again!")
     print()
