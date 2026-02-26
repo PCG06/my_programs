@@ -1,7 +1,7 @@
 """
     Program 15:
     Python script to create a class Rectangle to find area and perimeter,
-    and a child class Box to find its surface area (override area() and volume
+    and a child class Box to find its surface area (override area()) and volume
 """
 
 class Rectangle:

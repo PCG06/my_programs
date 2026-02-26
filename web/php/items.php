@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <title>Item Database</title>
+</head>
 <body>
     <form method="post">
         <table border="3">

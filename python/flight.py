@@ -58,7 +58,7 @@ while True:
         "5. Exit\n")
     ch = int(input("Enter your choice: "))
 
-    # 1. Update tickets
+    # 1. Update fare
     if ch == 1:
         fare = int(input("Enter updated fare: "))
         setattr(Skyway, "fare", fare)

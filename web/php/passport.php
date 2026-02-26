@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <title>Passport Registration Form</title>
+</head>
 <body>
     <form method="post" enctype="multipart/form-data">
         <table border="2">
