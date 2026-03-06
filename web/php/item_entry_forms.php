@@ -11,26 +11,26 @@
     <h2>Enter Item and Prices</h2>
     <form method="post">
         Item 1 Name:
-        <input type="text" name="itemName[]" required>
+        <input type="text" name="itemNames[]" required>
         Price:
-        <input type="number" name="itemPrice[]" required>
+        <input type="number" name="itemPrices[]" required>
         <br><br>
         Item 2 Name:
-        <input type="text" name="itemName[]" required>
+        <input type="text" name="itemNames[]" required>
         Price:
-        <input type="number" name="itemPrice[]" required>
+        <input type="number" name="itemPrices[]" required>
         <br><br>
         Item 3 Name:
-        <input type="text" name="itemName[]" required>
+        <input type="text" name="itemNames[]" required>
         Price:
-        <input type="number" name="itemPrice[]" required>
+        <input type="number" name="itemPrices[]" required>
         <br><br>
         <input type="submit" value="Submit" name="submit">
     </form>
     <?php
     if (isset($_POST['submit'])) {
-        $itemNames = $_POST['itemName'];
-        $itemPrices = $_POST['itemName'];
+        $itemNames = $_POST['itemNames'];
+        $itemPrices = $_POST['itemPrices'];
 
         $maxPrice = max($itemPrices);
         $minPrice = min($itemPrices);
@@ -38,8 +38,8 @@
         $minIndex = array_search($minPrice, $itemPrices);
 
         echo "<h2>Results:</h2>";
-        echo "Costliest item: " . $itemName[$maxIndex] . " " . $maxPrice . "<br>";
-        echo "Costliest item: " . $itemName[$minIndex] . " " . $minPrice;
+        echo "Costliest item: $itemNames[$maxIndex] $maxPrice <br>";
+        echo "Cheapest item: $itemNames[$minIndex] $minPrice";
     }
     ?>
 </body>

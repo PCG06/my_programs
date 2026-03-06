@@ -57,7 +57,7 @@
 <body>
     <div class="box">
         <?php
-        $showForm = TRUE;
+        $showForm = true;
         if (isset($_POST['username'])) {
             $name = $_POST['name'];
             $regno = $_POST['regno'];
@@ -70,40 +70,40 @@
                 echo "<h3>Login Successful</h3>
                 <table>
                     <tr><th>Field</th><th>Value</th></tr>
-                    <tr><th>Name</th><th>$name</th></tr>
-                    <tr><th>Register Number</th><th>$regno</th></tr>
-                    <tr><th>Date of Birth</th><th>$dob</th></tr>
-                    <tr><th>Mobile Number</th><th>$mobile</th></tr>
-                    <tr><th>Username</th><th>$username</th></tr>
-                <table>";
+                    <tr><td>Name</td><td>$name</td></tr>
+                    <tr><td>Register Number</td><td>$regno</td></tr>
+                    <tr><td>Date of Birtd</td><td>$dob</td></tr>
+                    <tr><td>Mobile Number</td><td>$mobile</td></tr>
+                    <tr><td>Username</td><td>$username</td></tr>
+                </table>";
             }
             $showForm = false;
         } else {
             echo "<h3 class='error'>Invalid Username or Password</h3>";
         }
         
-            if ($showForm) {
+        if ($showForm) {
         ?>
-                <h2>User Details Form</h2>
-                
-                <form method="post">
-                    Name:
-                    <input type="text" name="name" required><br><br>
-                    Register Number:
-                    <input type="text" name="regno" required><br><br>
-                    Date of Birth:
-                    <input type="date" name="dob" required><br><br>
-                    Mobile Number:
-                    <input type="number" name="mobile" required><br><br>
-                    Username:
-                    <input type="text" name="username" required><br><br>
-                    Password:
-                    <input type="password" name="password" required><br><br>
+            <h2>User Details Form</h2>
+            
+            <form method="post">
+                Name:
+                <input type="text" name="name" required><br><br>
+                Register Number:
+                <input type="text" name="regno" required><br><br>
+                Date of Birth:
+                <input type="date" name="dob" required><br><br>
+                Mobile Number:
+                <input type="number" name="mobile" required><br><br>
+                Username:
+                <input type="text" name="username" required><br><br>
+                Password:
+                <input type="password" name="password" required><br><br>
 
-                    <input type="submit" value="Submit">
-                </form>
+                <input type="submit" value="Submit">
+            </form>
         <?php
-            }
+        }
         ?>
     </div>
 </body>

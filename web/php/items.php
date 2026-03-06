@@ -1,3 +1,8 @@
+<!-- 
+    Program 14:
+    PHP webpage to insert items and display thr table content
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
