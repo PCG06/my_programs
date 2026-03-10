@@ -1,6 +1,6 @@
 <!-- 
-    Program 14:
-    PHP webpage to insert items and display thr table content
+    Program 13:
+    PHP webpage to insert items using MySQL and display the table content
 -->
 
 <!DOCTYPE html>
