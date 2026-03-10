@@ -93,7 +93,6 @@
             move_uploaded_file($tempname, $folder);
             $image = $folder;
 
-            $date = $birth;
             $t = explode('-', $issue);
             $t[0] = $t[0] + 10;
             $expiry = implode('-', $t);
