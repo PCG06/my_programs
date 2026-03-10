@@ -52,7 +52,7 @@
             }
 
             echo "<h3 style='color: green'>Ticket booking successful!</h3>";
-            echo "<h3>Dear, $name.<br>$tickets ticket(s) booked for the movie '$movie'<h3>";
+            echo "<h3>Dear, $name.<br>$tickets ticket(s) booked for the movie '$movie'</h3>";
 
             $_SESSION['name'] = $name;
             $_SESSION['movie'] = $movie;
@@ -83,7 +83,6 @@
         echo "<h3>Cookie Data:</h3>";
         echo "Last movie: " . $_COOKIE['last_movie'];
     }
-    // session_destroy();
     ?>
 </body>
 </html>
