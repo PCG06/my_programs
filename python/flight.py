@@ -11,7 +11,7 @@ class Skyway: # Airline name
     fare = int(input("Fare: "))
     tickets = int(input("Tickets: "))
     meal = input("Meal: ")
-    itenary = input("Itenary: ")
+    itinerary = input("Itinerary: ")
 
     @classmethod
     def display(cls):
@@ -22,7 +22,7 @@ class Skyway: # Airline name
         print("Fare:", getattr(Skyway, "fare"))
         print("Tickets:", getattr(Skyway, "tickets"))
         print("Meal:", getattr(Skyway, "meal"))
-        print("Itenary:", getattr(Skyway, "itenary"))
+        print("Itinerary:", getattr(Skyway, "itinerary"))
         print()
 
     @classmethod
@@ -33,7 +33,7 @@ class Skyway: # Airline name
         print("Check-in:", getattr(Skyway, "check_in"))
         print("Cabin:", getattr(Skyway, "cabin"))
 
-    def bookTickets(self, name, ntickets):
+    def book_tickets(self, name, ntickets):
         self.name = name
         self.ntickets = ntickets
 
@@ -53,7 +53,7 @@ while True:
     print("\n---Flight Menu---")
     print("1. Update fare\n"
         "2. Display baggage\n"
-        "3. Update itenary\n"
+        "3. Update itinerary\n"
         "4. Book tickets\n"
         "5. Exit\n")
     ch = int(input("Enter your choice: "))
@@ -68,17 +68,17 @@ while True:
     elif ch == 2:
         Skyway.baggage()
 
-    # 3. Update itenary
+    # 3. Update itinerary
     elif ch == 3:
-        itenary = input(f"Enter itenary for flight no {Skyway.flight_no}: ")
-        setattr(Skyway, "itenary", itenary)
-        print(f"Iternary updated to {Skyway.itenary}")
+        itinerary = input(f"Enter itinerary for flight no {Skyway.flight_no}: ")
+        setattr(Skyway, "itinerary", itinerary)
+        print(f"Iternary updated to {Skyway.itinerary}")
 
     # 4. Book tickets
     elif ch == 4:
         name = input("Enter passenger name: ")
         ntickets = int(input("Enter no. of tickets to be booked: "))
-        s.bookTickets(name, ntickets)
+        s.book_tickets(name, ntickets)
         print(f"Tickets remaining for {Skyway.flight_no}: {Skyway.tickets}")
 
     # 5. Exit

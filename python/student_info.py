@@ -14,7 +14,7 @@ for i in range(n):
     student_info[reg] = name
 
 print("\nStudent details:")
-print("in list:", student_info)
+print("In list:", student_info)
 student_info = dict(sorted(student_info.items()))
 print("\nSorted order:", student_info)
 
