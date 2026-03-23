@@ -13,7 +13,7 @@ if start >= end:
 else:
     ran_lis = []
     for i in range(n):
-        ran_lis.append(r.randint(start, end + 1))
+        ran_lis.append(r.randint(start, end))
 
     cnt_dict = {}
     for i in ran_lis:

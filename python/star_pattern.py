@@ -6,9 +6,9 @@
 n = int(input("Enter the width: "))
 
 # Increasing width
-for i in range(1, n + 1):
+for i in range(1, n):
     print("*" * i)
 
 # Decreasing width
-for i in range(n - 1, 0, -1):
+for i in range(n, 0, -1):
     print("*" * i)
