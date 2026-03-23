@@ -21,6 +21,7 @@ class Loan(Bank):
         super().__init__(name, cid)
         self.income = income
         self.loan_amt = 0
+        Loan.cust_count += 1
     
     def sanction_loan(self, amt):
         try:
@@ -39,10 +40,6 @@ class Loan(Bank):
         
         except ValueError:
             print("Loan rejected: Insufficient bank funds!")
-
-    @classmethod
-    def loan_amt_left(cls):
-        print("Fund left:", cls.total_fund)
 
     def display(self):
         print("Name:", self.name)
@@ -69,13 +66,12 @@ while choice.upper() == 'Y':
 
     cust = Loan(name, cid, income)
     cust.sanction_loan(loan)
-    cust.loan_amt_left()
     customers.append(cust)
     
     choice = input("\nDo you want to continue? (Y/N): ")
     print()
 
-print("\n---Customer Loan Details---")
+print("---Customer Loan Details---")
 for cust in customers:
     cust.display()
 
