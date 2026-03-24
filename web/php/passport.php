@@ -38,7 +38,7 @@
                 <td>Nationality:</td>
                 <td>
                     <input type="radio" name="n" value="indian">Indian
-                    <input type="radio" name="n" value="nri">NRI
+                    <input type="radio" name="n" value="NRI">NRI
                 </td>
             </tr>
             <tr>
@@ -69,7 +69,18 @@
         </table>
         <br><br>
     <?php
-    $con = new mysqli("localhost", "pcg06", "0000", "Passport");
+    $con = new mysqli("localhost", "pcg06", "0000"); // "passport" - fourth arg
+
+    // Database creation
+    $con->query("CREATE DATABASE IF NOT EXISTS passport");
+    $con->query("USE passport");
+    $con->query("CREATE TABLE IF NOT EXISTS passport (
+                    passport_no VARCHAR(10) PRIMARY KEY NOT NULL,
+                    name VARCHAR(10), surname VARCHAR(10), gender VARCHAR(10), dob DATE,
+                    nationality VARCHAR(10), address TEXT,
+                    father_name VARCHAR(100), mother_name VARCHAR(20),
+                    place_of_birth VARCHAR(20), date_of_issue DATE, date_of_expiry DATE,
+                    image VARCHAR(255))");
 
     if (mysqli_connect_error()) {
         die("Not connected");

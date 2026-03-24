@@ -39,7 +39,17 @@
         </table>
         <br><br>
     <?php
-    $con = new mysqli("localhost", "pcg06", "0000", "Items");
+    $con = new mysqli("localhost", "pcg06", "0000"); // "items" - fourth arg
+
+    // Database creation
+    $con->query("CREATE DATABASE IF NOT EXISTS items");
+    $con->query("USE items");
+    $con->query("CREATE TABLE IF NOT EXISTS product (
+                    id INT PRIMARY KEY,
+                    name VARCHAR(10),
+                    price INT,
+                    qty INT
+                )");
 
     if (mysqli_connect_error()) {
         die("Not connected");
