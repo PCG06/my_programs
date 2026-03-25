@@ -1,76 +1,52 @@
 <!--
     Program 5:
-    HTML webpage to design a time table using ID cnas class selectors using internal CSS
+    HTML webpage to design a time table using ID and class selectors using internal CSS
 -->
 
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <title>Time Table</title>
-        <style>
-            table {
-                border-collapse: collapse;
-                table-layout: fixed;
-            }
-            #table {
-                height: 30px; 
-                text-align: center;
-                vertical-align: middle;
-                border-spacing: 0px
-            }
-            .py {
-                background-color: turquoise;
-            }
-            .pylab {
-                background-color: cyan;
-            }
-            .php {
-                background-color: indigo;
-            }
-            .phplab {
-                background-color: purple;
-            }
-            .cona {
-                background-color: olive;
-            }
-            .se {
-                background-color: yellow;
-            }
-            .fl {
-                background-color: violet;
-            }
-            .fc {
-                background-color: brown;
-            }
-            .ve {
-                background-color: brown;
-            }
-            .lib {
-                background-color: salmon;
-            }
-            .swym {
-                background-color: salmon;
-            }
-            .eccc {
-                background-color: slategray;
-            }
-        </style>
-    </head>
+<head>
+    <title>Time Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        #table {
+            height: 30px; 
+            text-align: center;
+            vertical-align: middle;
+            border-spacing: 0px
+        }
+        .py { background-color: turquoise; }
+        .pylab { background-color: cyan; }
+        .php { background-color: indigo; }
+        .phplab { background-color: purple; }
+        .cona { background-color: olive; }
+        .se { background-color: yellow; }
+        .fl { background-color: violet; }
+        .fc { background-color: brown; }
+        .ve { background-color: brown; }
+        .lib { background-color: salmon; }
+        .swym { background-color: salmon; }
+        .eccc { background-color: slategray; }
+        .ln { background-color: white; }
+    </style>
+</head>
 
-    <body>
-        <h1 align="center">Time Table</h1>
-        <table id="table" border="1" align="center" cellpadding="10" cellspacing="0">
-
+<body>
+    <h1 align="center">Time Table</h1>
+    <table id="table" border="1" align="center" cellpadding="10" cellspacing="0">
         <tr>
             <th>Days</th>
-            <th>1<br><sup>9:00 - 9:50</sup></th>
-            <th>2<br><sup>9:55 - 10:45</th>
-            <th>3<br><sup>10:50 - 11:40</th>
-            <th>4<br><sup>11:45 - 12:35</th>
-            <th>Lunch<br><sup>12:35 - 1:25</th>
-            <th>5<br><sup>1:35 - 2:20</th>
-            <th>6<br><sup>2:25 - 3:15</th>
+            <th>1<br><sup>9:00 - 9:55</sup></th>
+            <th>2<br><sup>10:00 - 10:55</th>
+            <th>3<br><sup>11:00 - 11:55</th>
+            <th>4<br><sup>12:00 - 12:55</th>
+            <th>5<br><sup>1:00 - 1:55</th>
+            <th>6<br><sup>2:00 - 2:55</th>
+            <th>7<br><sup>3:00 - 3:55</th>
+            <th>7<br><sup>4:00 - 4:55</th>
         </tr>
 
         <tr>
@@ -78,8 +54,8 @@
             <td class="py">PY</td>
             <td class="cona">CONA</td>
             <td class="fl">FL</td>
-            <td class="lib">LIB<br><sup>(free)</sup></td>
-            <td rowspan="5"></td>
+            <td class="ln">Lunch</td>
+            <td class="lib">LIB</td>
             <td class="pylab" colspan="2">PY LAB</td>
         </tr>
 
@@ -88,6 +64,7 @@
             <td class="php">PHP</td>
             <td class="py">PY</td>
             <td class="se">SE</td>
+            <td class="ln">Lunch</td>
             <td class="swym">SWYM</td>
         </tr>
 
@@ -95,6 +72,7 @@
             <td>Wednesday</td>
             <td class="phplab" colspan="2">PHP LAB</td>
             <td class="se">SE</td>
+            <td class="ln">Lunch</td>
             <td class="cona">CONA</td>
         </tr>
 
@@ -104,15 +82,17 @@
             <td class="php">PHP</td>
             <td class="fl">FL</td>
             <td class="fc">FC</td>
+            <td class="ln">Lunch</td>
             <td class="pylab" colspan="2">PY LAB</td>
         </tr>
 
         <tr>
             <td>Friday</td>
-            <td class="lib">LIB<br><sup>(free)</sup></td>
+            <td class="lib">LIB</td>
             <td class="fc">FC</td>
             <td class="py">PY</td>
             <td class="php">PHP</td>
+            <td class="ln">Lunch</td>
             <td class="se">SE</td>
             <td class="eccc" colspan="2">EC/CC</td>
         </tr>
@@ -123,6 +103,6 @@
             <td class="ve">VE</td>
             <td class="phplab" colspan="2">PHP LAB</td>
         </tr>
-    </table>
+        </table>
 </body>
 </html>
