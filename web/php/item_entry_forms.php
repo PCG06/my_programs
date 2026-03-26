@@ -3,6 +3,7 @@
     PHP webpage to calculate the costliest and cheapest items from a list using array functions
 -->
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Item Entry Form</title>

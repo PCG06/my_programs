@@ -1,6 +1,6 @@
 <!-- 
     Program 10:
-    PHP webpage to calculate salary for fulltime and partime employee using inheritance concept
+    PHP webpage to calculate salary for fulltime and parttime employee using inheritance concept
 -->
 
 <!DOCTYPE html>
