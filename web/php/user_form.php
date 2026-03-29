@@ -36,13 +36,11 @@
             border: 1px solid #ccc;
             padding: 8px;
         }
-        input[type=text], input[type=password], input[type=date] {
+        input[type=text], input[type=password], input[type=date], input[type=submit] {
             width: 100%;
             padding: 6px;
         }
         input[type=submit] {
-            width: 100%;
-            padding: 8px;
             background-color: #4caf50;
             color: white;
             border: none;
@@ -94,7 +92,7 @@
                 Date of Birth:
                 <input type="date" name="dob" required><br><br>
                 Mobile Number:
-                <input type="number" name="mobile" required><br><br>
+                <input type="text" name="mobile" required><br><br>
                 Username:
                 <input type="text" name="username" required><br><br>
                 Password:
