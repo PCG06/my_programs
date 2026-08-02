@@ -2,10 +2,6 @@
 Program 1:
     JDBC program to create a library database with a book table
 */
-package LibraryManagement;
-
-import java.sql.*;
-import java.util.Scanner;
 
 /*
 CREATE TABLE book (
@@ -17,10 +13,18 @@ CREATE TABLE book (
     copies INT
 );
 */
+package LibraryManagement;
+
+import java.sql.*;
+import java.util.Scanner;
 
 class Library {
     private Connection con;
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+
+    Library(Scanner sc) {
+        this.sc = sc;
+    }
 
     private void connectDB() {
         try {
@@ -57,7 +61,9 @@ class Library {
             System.out.print("Enter no. of copies: ");
             int copies = sc.nextInt();
 
-            PreparedStatement ps = con.prepareStatement("INSERT INTO book VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = con.prepareStatement(
+                "INSERT INTO book VALUES (?, ?, ?, ?, ?, ?)"
+            );
 
             ps.setInt(1, id);
             ps.setString(2, name);
@@ -86,7 +92,9 @@ class Library {
             System.out.print("Enter Book ID: ");
             int id = sc.nextInt();
 
-            PreparedStatement ps = con.prepareStatement("DELETE FROM book WHERE bookid = ?");
+            PreparedStatement ps = con.prepareStatement(
+                "DELETE FROM book WHERE bookid = ?"
+            );
 
             ps.setInt(1, id);
 
@@ -113,7 +121,9 @@ class Library {
             System.out.print("Enter new price: ");
             double price = sc.nextDouble();
 
-            PreparedStatement ps = con.prepareStatement("UPDATE book SET price = ? WHERE bookid = ?");
+            PreparedStatement ps = con.prepareStatement(
+                "UPDATE book SET price = ? WHERE bookid = ?"
+            );
 
             ps.setDouble(1, price);
             ps.setInt(2, id);
@@ -141,7 +151,9 @@ class Library {
             System.out.print("Enter new copies: ");
             int copies = sc.nextInt();
 
-            PreparedStatement ps = con.prepareStatement("UPDATE book SET copies = ? WHERE bookid = ?");
+            PreparedStatement ps = con.prepareStatement(
+                "UPDATE book SET copies = ? WHERE bookid = ?"
+            );
 
             ps.setInt(1, copies);
             ps.setInt(2, id);
@@ -163,7 +175,7 @@ class Library {
 class LibraryManagement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Library lib = new Library();
+        Library lib = new Library(sc);
         int ch;
 
         System.out.println("---Menu---");

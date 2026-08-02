@@ -20,7 +20,11 @@ import java.util.Scanner;
 class Employee {
     private Connection con;
     private Statement st;
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+
+    public Employee(Scanner sc) {
+        this.sc = sc;
+    }
 
     private void connectDB() {
         try {
@@ -52,8 +56,10 @@ class Employee {
             System.out.print("Enter salary: ");
             double salary = sc.nextInt();
 
-            int rows = st.executeUpdate("INSERT INTO employee VALUES (" +
-                            empid + ", '" + name + "', '" + dept + "', " + salary + ")");
+            int rows = st.executeUpdate(
+                "INSERT INTO employee VALUES " +
+                "(" + empid + ", '" + name + "', '" + dept + "', " + salary + ")"
+            );
 
             if (rows > 0)
                 System.out.println("Employee data inserted successfully!");
@@ -73,7 +79,9 @@ class Employee {
             System.out.print("Enter emp id: ");
             int empid = sc.nextInt();
 
-            int rows = st.executeUpdate("DELETE FROM employee WHERE empid = " + empid);
+            int rows = st.executeUpdate(
+                "DELETE FROM employee WHERE empid = " + empid
+            );
 
             if (rows > 0)
                 System.out.println("Employee data deleted successfully!");
@@ -90,15 +98,17 @@ class Employee {
         try {
             connectDB();
 
-            ResultSet rs = st.executeQuery("SELECT dept, COUNT(*) as total_emps, SUM(salary) AS total_salary " +
-                                "FROM employee GROUP BY dept");
+            ResultSet rs = st.executeQuery(
+                "SELECT dept, COUNT(*) AS total_emps, SUM(salary) AS total_salary " +
+                "FROM employee GROUP BY dept"
+            );
 
             if (!rs.next()) {
                 System.out.println("No employees found.");
                 return;
             }
 
-            System.out.println("\n--------------------------------");
+            System.out.println("--------------------------------");
             System.out.println("DEPT\tEMPLOYEES\tTOTAL_SALARY");
             System.out.println("--------------------------------");
 
@@ -129,7 +139,10 @@ class Employee {
             System.out.println(dept);
             System.out.println(salary);
 
-            int rows = st.executeUpdate("UPDATE employee SET salary = salary + " + salary + " WHERE dept = '" + dept + "'");
+            int rows = st.executeUpdate(
+                "UPDATE employee SET salary = salary + " + salary +
+                " WHERE dept = '" + dept + "'"
+            );
 
             if (rows > 0)
                 System.out.println("Increased salary for " + rows + " employee(s)");
@@ -146,7 +159,7 @@ class Employee {
 public class EmployeeManagement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Employee em = new Employee();
+        Employee em = new Employee(sc);
         int ch;
 
         System.out.println("---Menu---");
@@ -159,6 +172,7 @@ public class EmployeeManagement {
         do {
             System.out.print("\nEnter your choice: ");
             ch = sc.nextInt();
+            sc.nextLine();
             System.out.println();
 
             switch (ch) {
@@ -186,5 +200,7 @@ public class EmployeeManagement {
                     System.out.println("Invalid choice! Enter again.");
             }
         } while (ch != 5);
+
+        sc.close();
     }
 }

@@ -17,7 +17,8 @@ CREATE TABLE transactions (
     trans_type VARCHAR(10),
     particulars VARCHAR(25),
     trans_amt DOUBLE
-);*/
+);
+*/
 
 package BankManagement;
 
@@ -56,12 +57,16 @@ class Bank {
             System.out.print("Enter particulars: ");
             String part = sc.nextLine();
 
-            int rows = st.executeUpdate("UPDATE customer SET balance = balance + " + amt +
-                            " WHERE accno = " + acc);
+            int rows = st.executeUpdate(
+                "UPDATE customer SET balance = balance + " + amt +
+                " WHERE accno = " + acc
+            );
 
             if (rows > 0) {
-                st.executeUpdate("INSERT INTO transactions VALUES (" +
-                    acc + ", CURRENT_DATE, 'deposit', '" + part + "', " + amt + ")");
+                st.executeUpdate(
+                    "INSERT INTO transactions VALUES " +
+                    "(" + acc + ", CURRENT_DATE, 'deposit', '" + part + "', " + amt + ")"
+                );
 
                 System.out.println("Amount deposited into account!");
             } else {
@@ -88,7 +93,9 @@ class Bank {
             System.out.print("Enter particulars: ");
             String part = sc.nextLine();
 
-            ResultSet rs = st.executeQuery("SELECT balance FROM customer WHERE accno = " + acc);
+            ResultSet rs = st.executeQuery(
+                "SELECT balance FROM customer WHERE accno = " + acc
+            );
 
             if (!rs.next()) {
                 System.out.println("Account not found.");
@@ -107,12 +114,15 @@ class Bank {
                 return;
             }
 
-            int rows = st.executeUpdate("UPDATE customer SET balance = balance - " + amt +
-                            " WHERE accno = " + acc);
+            int rows = st.executeUpdate(
+                "UPDATE customer SET balance = balance - " + amt +
+                " WHERE accno = " + acc);
 
             if (rows > 0) {
-                st.executeUpdate("INSERT INTO transactions VALUES (" +
-                    acc + ", CURRENT_DATE, 'withdraw', '" + part + "', " + amt + ")");
+                st.executeUpdate(
+                    "INSERT INTO transactions VALUES" +
+                    "(" + acc + ", CURRENT_DATE, 'withdraw', '" + part + "', " + amt + ")"
+                );
 
                 System.out.println("Amount withdrawn from account!");
             } else {
@@ -154,7 +164,9 @@ class Bank {
             System.out.print("Enter acc no: ");
             int acc = sc.nextInt();
 
-            ResultSet cust = st.executeQuery("SELECT * FROM customer WHERE accno = " + acc);
+            ResultSet cust = st.executeQuery(
+                "SELECT * FROM customer WHERE accno = " + acc
+            );
 
             if (!cust.next()) {
                 System.out.println("Account not found.");
@@ -162,7 +174,9 @@ class Bank {
             }
 
             System.out.println();
+            System.out.println("\n--------------------------------------");
             System.out.println("ACC_NO\t\tNAME\t\tACC_TYPE\t\tBALANCE");
+            System.out.println("--------------------------------------");
             System.out.println(
                 cust.getInt("accno") + "\t\t" +
                 cust.getString("name") + "\t\t" +
@@ -170,16 +184,19 @@ class Bank {
                 cust.getDouble("balance")
             );
 
-            ResultSet trans = st.executeQuery("SELECT * FROM transactions WHERE " +
-                            " accno = " + acc + " AND trans_date = CURRENT_DATE");
+            ResultSet trans = st.executeQuery(
+                "SELECT * FROM transactions WHERE " +
+                " accno = " + acc + " AND trans_date = CURRENT_DATE"
+            );
 
             if (!trans.next()) {
                 System.out.println("Transactions not found.");
                 return;
             }
 
-            System.out.println();
+            System.out.println("\n---------------------------------------------------------------");
             System.out.println("ACCNO\t\tTRANS_DATE\t\tTRANS_TYPE\t\tPARTICULARS\t\tTRANS_AMT");
+            System.out.println("---------------------------------------------------------------");
             do {
                 System.out.println(
                     trans.getInt("accno") + "\t\t" +
@@ -207,16 +224,19 @@ class Bank {
             System.out.print("Enter to date (YYYY-MM-DD): ");
             String to = sc.nextLine();
 
-            ResultSet trans = st.executeQuery("SELECT * FROM transactions WHERE " +
-                            "trans_date BETWEEN '" + from + "' AND '" + to + "'");
+            ResultSet trans = st.executeQuery(
+                "SELECT * FROM transactions WHERE " +
+                "trans_date BETWEEN '" + from + "' AND '" + to + "'"
+            );
 
             if (!trans.next()) {
                 System.out.println("Transactions not found.");
                 return;
             }
 
-            System.out.println();
+            System.out.println("\n---------------------------------------------------------------");
             System.out.println("ACCNO\t\tTRANS_DATE\t\tTRANS_TYPE\t\tPARTICULARS\t\tTRANS_AMT");
+            System.out.println("---------------------------------------------------------------");
             do {
                 System.out.println(
                     trans.getInt("accno") + "\t\t" +

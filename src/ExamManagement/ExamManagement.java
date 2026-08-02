@@ -31,7 +31,11 @@ import java.util.Scanner;
 class Exam {
     private Connection con;
     private Statement st;
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+
+    Exam(Scanner sc) {
+        this.sc = sc;
+    }
 
     private void connectDB() {
         try {
@@ -63,8 +67,10 @@ class Exam {
             System.out.print("Enter course: ");
             String course = sc.nextLine();
 
-            int rows = st.executeUpdate("INSERT INTO student VALUES ( " +
-                            regno + ", '" + name + "', '" + clas + "', '" + course + "')");
+            int rows = st.executeUpdate(
+                "INSERT INTO student VALUES " +
+                "(" + regno + ", '" + name + "', '" + clas + "', '" + course + "')"
+            );
 
             if (rows > 0)
                 System.out.println("Student data entered successfully!");
@@ -107,8 +113,10 @@ class Exam {
                     result = "Pass class";
             }
 
-            int rows = st.executeUpdate("INSERT INTO exam VALUES ( " +
-                            regno + ", " + m1 + ", " + m2 + ", " + m3 + ", " + total + ", " + perc + ", '" + result + "')");
+            int rows = st.executeUpdate(
+                "INSERT INTO exam VALUES " +
+                "(" + regno + ", " + m1 + ", " + m2 + ", " + m3 + ", " + total + ", " + perc + ", '" + result + "')"
+            );
 
             if (rows > 0)
                 System.out.println("Marks data inserted successfully!");
@@ -128,15 +136,20 @@ class Exam {
             System.out.print("Enter reg no: ");
             int regno = sc.nextInt();
 
-            ResultSet rs = st.executeQuery("SELECT s.*, e.sub1, e.sub2, e.sub3, e.total, e.perc, e.result FROM " +
-                                "student s INNER JOIN exam e ON s.regno = e.regno AND s.regno = " + regno);
+            ResultSet rs = st.executeQuery(
+                "SELECT s.*, e.sub1, e.sub2, e.sub3, e.total, e.perc, e.result " +
+                "FROM student s INNER JOIN exam e " +
+                "ON s.regno = e.regno AND s.regno = " + regno
+            );
 
             if (!rs.next()) {
                 System.out.println("Student data not found.");
                 return;
             }
 
+            System.out.println("\n-------------------------------------------------------------------");
             System.out.println("REGNO\tNAME\tCLASS\tCOURSE\tSUB1\tSUB2\tSUB3\tTOTAL\tPERC\tRESULT");
+            System.out.println("-------------------------------------------------------------------");
             System.out.println(
                 rs.getInt("regno") + "\t" +
                 rs.getString("name") + "\t" +
@@ -160,7 +173,7 @@ class Exam {
 public class ExamManagement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Exam ex = new Exam();
+        Exam ex = new Exam(sc);
         int ch;
 
         System.out.println("---Menu---");

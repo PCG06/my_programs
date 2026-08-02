@@ -21,7 +21,11 @@ import java.util.Scanner;
 class Student {
     private Connection con;
     private Statement st;
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+
+    Student(Scanner sc) {
+        this.sc = sc;
+    }
 
     private void connectDB() {
         try {
@@ -56,8 +60,10 @@ class Student {
             System.out.print("Enter course: ");
             String course = sc.nextLine();
 
-            int rows = st.executeUpdate("INSERT INTO student VALUES (" +
-                            regno + ", '" + name + "', '" + address + "', '" + clas + "', '" + course + "')");
+            int rows = st.executeUpdate(
+                "INSERT INTO student VALUES " +
+                "(" + regno + ", '" + name + "', '" + address + "', '" + clas + "', '" + course + "')"
+            );
 
             if (rows > 0)
                 System.out.println("Student data inserted successfully!");
@@ -77,7 +83,9 @@ class Student {
             System.out.print("Enter reg no: ");
             int regno = sc.nextInt();
 
-            int rows = st.executeUpdate("DELETE FROM student WHERE regno =  " + regno);
+            int rows = st.executeUpdate(
+                "DELETE FROM student WHERE regno =  " + regno
+            );
 
             if (rows > 0)
             System.out.println("Student data deleted successfully!");
@@ -94,15 +102,17 @@ class Student {
         try {
             connectDB();
 
-            System.out.println("Enter reg no: ");
+            System.out.print("Enter reg no: ");
             int regno = sc.nextInt();
             sc.nextLine();
 
             System.out.print("Enter address: ");
             String address = sc.nextLine();
 
-            int rows = st.executeUpdate("UPDATE student SET address = '" + address + "' " +
-                            "WHERE regno = " + regno);
+            int rows = st.executeUpdate(
+                "UPDATE student SET address = '" + address + "' " +
+                "WHERE regno = " + regno
+            );
 
             if (rows > 0)
                 System.out.println("Student address updated successfully!");
@@ -122,13 +132,17 @@ class Student {
             System.out.print("Enter reg no: ");
             int regno = sc.nextInt();
 
-            ResultSet rs = st.executeQuery("SELECT * FROM student WHERE regno = " + regno);
+            ResultSet rs = st.executeQuery(
+                "SELECT * FROM student WHERE regno = " + regno
+            );
 
             if (!rs.next()) {
                 System.out.println("Student data not found.");
                 return;
             } else {
+                System.out.println("\n------------------------------------");
                 System.out.println("REGNO\tNAME\tADDRESS\tCLASS\tCOURSE");
+                System.out.println("------------------------------------");
                 System.out.println(
                     rs.getInt("regno") + "\t" +
                     rs.getString("name") + "\t" +
@@ -148,7 +162,7 @@ class Student {
 public class StudentManagement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Student stu = new Student();
+        Student stud = new Student(sc);
         int ch;
 
         System.out.println("---Menu---");
@@ -165,19 +179,19 @@ public class StudentManagement {
 
             switch (ch) {
                 case 1:
-                    stu.insertStudent();
+                    stud.insertStudent();
                     break;
 
                 case 2:
-                    stu.deleteStudent();
+                    stud.deleteStudent();
                     break;
 
                 case 3:
-                    stu.updateAddress();
+                    stud.updateAddress();
                     break;
 
                 case 4:
-                    stu.searchStudent();
+                    stud.searchStudent();
                     break;
 
                 case 5:
