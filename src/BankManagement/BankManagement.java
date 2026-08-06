@@ -174,7 +174,7 @@ class BankManagement {
             }
 
             System.out.println();
-            System.out.println("\n--------------------------------------");
+            System.out.println("--------------------------------------");
             System.out.println("ACC_NO\tNAME\tACC_TYPE\tBALANCE");
             System.out.println("--------------------------------------");
             System.out.println(
@@ -194,7 +194,8 @@ class BankManagement {
                 return;
             }
 
-            System.out.println("\n---------------------------------------------------------------");
+            System.out.println();
+            System.out.println("---------------------------------------------------------------");
             System.out.println("ACCNO\tTRANS_DATE\tTRANS_TYPE\tPARTICULARS\tTRANS_AMT");
             System.out.println("---------------------------------------------------------------");
             do {
@@ -234,7 +235,8 @@ class BankManagement {
                 return;
             }
 
-            System.out.println("\n---------------------------------------------------------------");
+            System.out.println();
+            System.out.println("---------------------------------------------------------------");
             System.out.println("ACCNO\tTRANS_DATE\tTRANS_TYPE\tPARTICULARS\tTRANS_AMT");
             System.out.println("---------------------------------------------------------------");
             do {
