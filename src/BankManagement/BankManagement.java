@@ -25,7 +25,7 @@ package BankManagement;
 import java.sql.*;
 import java.util.Scanner;
 
-class Bank {
+class BankManagement {
     private static Connection con;
     private static Statement st;
     private static Scanner sc = new Scanner(System.in);
@@ -65,7 +65,7 @@ class Bank {
             if (rows > 0) {
                 st.executeUpdate(
                     "INSERT INTO transactions VALUES " +
-                    "(" + acc + ", CURRENT_DATE, 'deposit', '" + part + "', " + amt + ")"
+                    "(" + acc + ", CURRENT_DATE, 'deposit ', '" + part + "', " + amt + ")"
                 );
 
                 System.out.println("Amount deposited into account!");
@@ -175,12 +175,12 @@ class Bank {
 
             System.out.println();
             System.out.println("\n--------------------------------------");
-            System.out.println("ACC_NO\t\tNAME\t\tACC_TYPE\t\tBALANCE");
+            System.out.println("ACC_NO\tNAME\tACC_TYPE\tBALANCE");
             System.out.println("--------------------------------------");
             System.out.println(
-                cust.getInt("accno") + "\t\t" +
-                cust.getString("name") + "\t\t" +
-                cust.getString("acctype") + "\t\t" +
+                cust.getInt("accno") + "\t" +
+                cust.getString("name") + "\t" +
+                cust.getString("acctype") + "\t" +
                 cust.getDouble("balance")
             );
 
@@ -195,14 +195,14 @@ class Bank {
             }
 
             System.out.println("\n---------------------------------------------------------------");
-            System.out.println("ACCNO\t\tTRANS_DATE\t\tTRANS_TYPE\t\tPARTICULARS\t\tTRANS_AMT");
+            System.out.println("ACCNO\tTRANS_DATE\tTRANS_TYPE\tPARTICULARS\tTRANS_AMT");
             System.out.println("---------------------------------------------------------------");
             do {
                 System.out.println(
-                    trans.getInt("accno") + "\t\t" +
-                    trans.getDate("trans_date") + "\t\t" +
-                    trans.getString("trans_type") + "\t\t" +
-                    trans.getString("particulars") + "\t\t" +
+                    trans.getInt("accno") + "\t" +
+                    trans.getDate("trans_date") + "\t" +
+                    trans.getString("trans_type") + "\t" +
+                    trans.getString("particulars") + "\t" +
                     trans.getDouble("trans_amt")
                 );
             } while (trans.next());
@@ -235,14 +235,14 @@ class Bank {
             }
 
             System.out.println("\n---------------------------------------------------------------");
-            System.out.println("ACCNO\t\tTRANS_DATE\t\tTRANS_TYPE\t\tPARTICULARS\t\tTRANS_AMT");
+            System.out.println("ACCNO\tTRANS_DATE\tTRANS_TYPE\tPARTICULARS\tTRANS_AMT");
             System.out.println("---------------------------------------------------------------");
             do {
                 System.out.println(
-                    trans.getInt("accno") + "\t\t" +
-                    trans.getDate("trans_date") + "\t\t" +
-                    trans.getString("trans_type") + "\t\t" +
-                    trans.getString("particulars") + "\t\t" +
+                    trans.getInt("accno") + "\t" +
+                    trans.getDate("trans_date") + "\t" +
+                    trans.getString("trans_type") + "\t" +
+                    trans.getString("particulars") + "\t" +
                     trans.getDouble("trans_amt")
                 );
             } while (trans.next());
@@ -252,11 +252,8 @@ class Bank {
             System.out.println(e.getMessage());
         }
     }
-}
 
-public class BankManagement {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int ch;
 
         System.out.println("---Menu---");
@@ -272,15 +269,15 @@ public class BankManagement {
 
             switch (ch) {
                 case 1:
-                    Bank.deposit();
+                    deposit();
                     break;
 
                 case 2:
-                    Bank.withdraw();
+                    withdraw();
                     break;
 
                 case 3:
-                    Bank.report();
+                    report();
                     break;
 
                 case 4:
