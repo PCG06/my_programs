@@ -1,5 +1,6 @@
 /*
-    Lab 6:
+Program 7:
+    Java Servlet program to use sessions to store and retrieve data
 */
 
 package Sessions;

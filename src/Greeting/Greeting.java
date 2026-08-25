@@ -1,5 +1,6 @@
 /*
-    Lab 6:
+Program 6:
+    Java Servlet program to select background color and print time-appropriate greeting
 */
 
 package Greeting;
