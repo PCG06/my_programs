@@ -16,4 +16,5 @@ out/
 .DS_Store
 *.swp
 *:Zone.Identifier
+sample.txt
 src/*/database

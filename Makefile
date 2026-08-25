@@ -27,6 +27,8 @@ TOMCAT_LOGS    := $(TOMCAT_HOME)/logs
 LOG_DIR    := logs
 LIB_CP     := $(DERBY_CP):$(SERVLET_CP)
 
+CN_DIR := $(SRC_DIR)/CN
+
 export CLASSPATH := $(LIB_CP)
 export CATALINA_HOME := $(TOMCAT_HOME)
 export PATH := $(DERBY_BIN):$(PATH)
@@ -37,6 +39,10 @@ PACKAGE_CLASSES = $(patsubst $(SRC_DIR)/%.java,$(BUILD_DIR)/%.class,$(PACKAGE_SO
 
 MAIN_SOURCES = $(wildcard $(SRC_DIR)/*.java)
 MAIN_CLASSES = $(patsubst $(SRC_DIR)/%.java,$(BUILD_DIR)/%.class,$(MAIN_SOURCES))
+
+# CN networking sources
+NET_SOURCES = $(wildcard $(CN_DIR)/*/*.java)
+NET_CLASSES = $(patsubst $(SRC_DIR)/%.java,$(BUILD_DIR)/%.class,$(NET_SOURCES))
 
 # FILE must be a package/folder name only, e.g. FILE=LibraryManagement
 # (no FILE=LibraryManagement.java)
@@ -51,7 +57,23 @@ define check_file
 	fi
 endef
 
-all: $(BUILD_DIR) $(PACKAGE_CLASSES) $(MAIN_CLASSES)
+# FILE must be a .java path relative to $(CN_DIR)/, e.g. FILE=OneWayComm/Client.java
+define check_net_file
+	@if [ -z "$(FILE)" ]; then \
+		echo "Usage: make net FILE=<Subfolder>/<ClassName>.java  (relative to $(CN_DIR)/)"; \
+		exit 1; \
+	fi
+	@if [ "$(suffix $(FILE))" != ".java" ]; then \
+		echo "FILE must be a .java path relative to $(CN_DIR)/, e.g. FILE=OneWayComm/Client.java"; \
+		exit 1; \
+	fi
+	@if [ ! -f "$(CN_DIR)/$(FILE)" ]; then \
+		echo "$(CN_DIR)/$(FILE) not found."; \
+		exit 1; \
+	fi
+endef
+
+all: $(BUILD_DIR) $(PACKAGE_CLASSES) $(MAIN_CLASSES) $(NET_CLASSES)
 	@echo "All Java files compiled!"
 
 ifeq ($(wildcard $(DERBY_LIB)/derbyclient.jar),)
@@ -127,6 +149,17 @@ run: $(BUILD_DIR)
 	@echo $(JAVA) -cp $(BUILD_DIR):LIB_CP $(FILE).$(FILE)
 	@$(JAVA) -cp "$(BUILD_DIR):$(LIB_CP)" "$(FILE).$(FILE)"
 
+net: $(BUILD_DIR)
+	$(call check_net_file,net)
+	@SRC="$(CN_DIR)/$(FILE)"; \
+	CLASS_NAME="$$(basename "$(FILE)" .java)"; \
+	PKG="$$(sed -n 's/^[[:space:]]*package[[:space:]]\+\([A-Za-z0-9_.]*\)[[:space:]]*;.*/\1/p' "$$SRC" | head -1)"; \
+	echo $(JAVAC) -d $(BUILD_DIR) "$$SRC"; \
+	$(JAVAC) -d "$(BUILD_DIR)" "$$SRC" || exit 1; \
+	if [ -n "$$PKG" ]; then FQCN="$$PKG.$$CLASS_NAME"; else FQCN="$$CLASS_NAME"; fi; \
+	echo $(JAVA) -cp $(BUILD_DIR) "$$FQCN"; \
+	$(JAVA) -cp "$(BUILD_DIR)" "$$FQCN"
+
 # Servlet programs: compiles, deploys as an exploded webapp into Tomcat, starts Tomcat if needed.
 servlet: $(BUILD_DIR)
 	$(call check_file,servlet)
@@ -179,4 +212,4 @@ clean:
 
 cleanbuild: clean all
 
-.PHONY: all run servlet clean cleanbuild
+.PHONY: all run net servlet clean cleanbuild
