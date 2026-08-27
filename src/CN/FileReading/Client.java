@@ -15,12 +15,12 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
-    public static void main(String[] args) throws Exception {
-        try (Socket client = new Socket("localhost", 12345)) {
+    public static void main(String[] args) throws IOException {
+        try (Socket client = new Socket("localhost", 9998)) {
                 InputStreamReader isr = new InputStreamReader(client.getInputStream());
-                OutputStreamWriter osr = new OutputStreamWriter(client.getOutputStream());
+                OutputStreamWriter osw = new OutputStreamWriter(client.getOutputStream());
                 BufferedReader in = new BufferedReader(isr);
-                PrintWriter out = new PrintWriter(osr, true);
+                PrintWriter out = new PrintWriter(osw, true);
                 Scanner sc = new Scanner(System.in);
 
                 System.out.print("Enter file name: ");
@@ -35,11 +35,8 @@ public class Client {
                     System.out.println(line);
 
                 sc.close();
-                out.close();
-                in.close();
-                osr.close();
-                isr.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("Client not connected!");
             e.printStackTrace();
         }
     }

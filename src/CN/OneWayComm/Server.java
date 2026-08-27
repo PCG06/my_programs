@@ -1,6 +1,6 @@
 /*
 CN Program 1:
-    Java socket program to perform unidirectional communcation between client and server.
+    Java socket program to perform unidirectional communication between client and server.
     Client sends data to server.
 */
 
@@ -13,7 +13,7 @@ import java.net.Socket;
 import java.net.ServerSocket;
 
 public class Server {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         System.out.println("Server is starting...");
         try (ServerSocket server = new ServerSocket(9998)) {
             System.out.println("Server is waiting for client connection.");
@@ -34,11 +34,7 @@ public class Server {
             System.out.println();
 
             System.out.println("Data received!");
-
-            in.close();
-            isr.close();
-            client.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Server not connected!");
             e.printStackTrace();
         }

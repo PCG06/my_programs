@@ -17,9 +17,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         System.out.println("Server is starting...");
-        try (ServerSocket server = new ServerSocket(12345)) {
+        try (ServerSocket server = new ServerSocket(9998)) {
             System.out.println("Server is waiting for client connection.");
 
             while (true) {
@@ -27,13 +27,12 @@ public class Server {
                 System.out.println("Client connected!");
 
                 InputStreamReader isr = new InputStreamReader(client.getInputStream());
-                OutputStreamWriter osr = new OutputStreamWriter(client.getOutputStream());
+                OutputStreamWriter osw = new OutputStreamWriter(client.getOutputStream());
                 BufferedReader in = new BufferedReader(isr);
-                PrintWriter out = new PrintWriter(osr, true);
+                PrintWriter out = new PrintWriter(osw, true);
                 
                 String filename = in.readLine();
                 System.out.println("Client requested file: " + filename);
-                String line = null;
 
                 File file = new File(filename);
                 if (file.exists()) {
@@ -41,6 +40,7 @@ public class Server {
 
                     System.out.println("Sending data to client...");
 
+                    String line;
                     while ((line = fileReader.readLine()) != null)
                         out.println(line);
 
@@ -52,12 +52,10 @@ public class Server {
                     out.println("File does not exist!");
                 }
 
-                out.close();
-                in.close();
-                osr.close();
-                isr.close();
+                client.close();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("Server not connected!");
             e.printStackTrace();
         }
     }

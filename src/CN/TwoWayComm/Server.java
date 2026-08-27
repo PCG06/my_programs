@@ -1,6 +1,6 @@
 /*
 CN Program 2:
-    Java socket program to perform bidirectional communcation between client and server.
+    Java socket program to perform bidirectional communication between client and server.
     Client and server can send data to each other.
 */
 
@@ -15,7 +15,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 public class Server {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         System.out.println("Server is starting...");
         try (ServerSocket server = new ServerSocket(9998)) {
             System.out.println("Server is waiting for client connection.");
@@ -24,9 +24,9 @@ public class Server {
             System.out.println("Client connected!");
 
             InputStreamReader isr = new InputStreamReader(client.getInputStream());
-            OutputStreamWriter osr = new OutputStreamWriter(client.getOutputStream());
+            OutputStreamWriter osw = new OutputStreamWriter(client.getOutputStream());
             BufferedReader in = new BufferedReader(isr);
-            PrintWriter out = new PrintWriter(osr, true);
+            PrintWriter out = new PrintWriter(osw, true);
             Scanner sc = new Scanner(System.in);
 
             while (true) {
@@ -52,11 +52,7 @@ public class Server {
             }
 
             sc.close();
-            out.close();
-            in.close();
-            osr.close();
-            isr.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Server not connected!");
             e.printStackTrace();
         }
