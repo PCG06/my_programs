@@ -41,6 +41,8 @@ public class Client {
             }
 
             sc.close();
+            out.close();
+            in.close();
         } catch (Exception e) {
             System.out.println("Client not connected!");
             e.printStackTrace();

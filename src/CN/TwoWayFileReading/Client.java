@@ -4,7 +4,7 @@ CN Program 3:
     and receive file contents if it is present.
 */
 
-package CN.FileReading;
+package CN.TwoWayFileReading;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,6 +35,8 @@ public class Client {
                     System.out.println(line);
 
                 sc.close();
+                out.close();
+                in.close();
         } catch (Exception e) {
             System.out.println("Client not connected!");
             e.printStackTrace();

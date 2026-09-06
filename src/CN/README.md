@@ -1,20 +1,20 @@
 # Sem 6 - Computer Networks
 
-Java programs written for my sixth semester, covering Computer Networks.
+Java programs written for my fifth semester, covering Computer Networks.
 
 ### How To Build:
 
 Use the Makefile to compile and run programs:
 
 ```bash
-make net FILE=CN/<Folder>/<Class>.java
+make net FILE=<Folder>/<Class>.java
 ```
 
 For example:
 
 ```bash
-make net FILE=CN/TwoWayComm/Server.java
-make net FILE=CN/TwoWayComm/Client.java
+make net FILE=TwoWayComm/Server.java
+make net FILE=TwoWayComm/Client.java
 ```
 
 ### Topics Include:

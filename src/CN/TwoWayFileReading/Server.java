@@ -4,7 +4,7 @@ CN Program 3:
     and receive file contents if it is present.
 */
 
-package CN.FileReading;
+package CN.TwoWayFileReading;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -52,6 +52,8 @@ public class Server {
                     out.println("File does not exist!");
                 }
 
+                out.close();
+                in.close();
                 client.close();
             }
         } catch (Exception e) {

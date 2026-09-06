@@ -34,6 +34,9 @@ public class Server {
             System.out.println();
 
             System.out.println("Data received!");
+
+            in.close();
+            client.close();
         } catch (Exception e) {
             System.out.println("Server not connected!");
             e.printStackTrace();

@@ -23,10 +23,11 @@ public class Client {
             out.println("Country: India");
 
             System.out.println("Data sent!");
+
+            out.close();
         } catch (Exception e) {
             System.out.println("Client not connected!");
             e.printStackTrace();
         }
     }
 }
-

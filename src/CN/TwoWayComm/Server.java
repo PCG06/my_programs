@@ -52,6 +52,9 @@ public class Server {
             }
 
             sc.close();
+            out.close();
+            in.close();
+            client.close();
         } catch (Exception e) {
             System.out.println("Server not connected!");
             e.printStackTrace();
