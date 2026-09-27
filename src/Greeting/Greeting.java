@@ -1,5 +1,5 @@
 /*
-Program 6:
+Program 1:
     Java Servlet program to select background color and print time-appropriate greeting
 */
 
@@ -19,24 +19,25 @@ public class Greeting extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
 
-        PrintWriter out = response.getWriter();
-        LocalTime time = LocalTime.now();
-        String greet = getGreeting(time.getHour());
-        String bgColor = request.getParameter("bgColor");
+        try (PrintWriter out = response.getWriter()) {
+            LocalTime time = LocalTime.now();
+            String greet = getGreeting(time.getHour());
+            String bgColor = request.getParameter("bgColor");
 
-        if (bgColor == null || bgColor.equals(""))
-            bgColor = "White";
+            if (bgColor == null || bgColor.equals(""))
+                bgColor = "White";
 
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Greeting Servlet</title>");
-        out.println("</head>");
-        out.println("<body style='background-color: " + bgColor + "; text-align: center;'>");
-        out.println("<h2>Current System Time: " + time + "</h2>");
-        out.println("<h1>" + greet + "</h1>");
-        out.println("</body>");
-        out.println("</html>");
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Greeting Servlet</title>");
+            out.println("</head>");
+            out.println("<body style='background-color: " + bgColor + "; text-align: center;'>");
+            out.println("<h2>Current System Time: " + time + "</h2>");
+            out.println("<h1>" + greet + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } 
     }
 
     @Override

@@ -1,0 +1,44 @@
+<!--
+Program 7:
+    Java Servlet program to perform operations on employee table
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Data Entry</title>
+</head>
+<body>
+    <center>
+        <h1>Employee Data Entry</h1>
+        <form action="UpdateData" method="post">
+            <table>
+                <tr>
+                    <td>Employee ID:</td>
+                    <td><input type="number" name="empid" required></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <td>Department:</td>
+                    <td><input type="text" name="dept" required></td>
+                </tr>
+                <tr>
+                    <td>Salary:</td>
+                    <td><input type="number" name="salary" step="0.01" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                    <input type="hidden" name="update" value="insert">
+                    <input type="submit" value="Insert">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <a href="../Employee">Back to home</a>
+    </center>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!--
+Program 2:
+    Java Servlet program to create a shopping page
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Servlet</title>
+</head>
+<body>
+    <h1>Online Shopping</h1>
+    <form action="Shopping" method="post">
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="products" value="Laptop">
+                    Laptop
+                </td>
+                <td>50000</td>
+                <td>
+                    <input type="number" name="qty_Laptop" value="0">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="products" value="Mobile">
+                    Mobile
+                </td>
+                <td>2500</td>
+                <td>
+                    <input type="number" name="qty_Mobile" value="0">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="products" value="Headphones">
+                    Headphones
+                </td>
+                <td>2000</td>
+                <td>
+                    <input type="number" name="qty_Headphones" value="0">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="products" value="Keyboard">
+                    Keyboard
+                </td>
+                <td>1500</td>
+                <td>
+                    <input type="number" name="qty_Keyboard" value="0">
+                </td>
+            </tr>
+        </table>
+        <br>
+        Name:
+        <input type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

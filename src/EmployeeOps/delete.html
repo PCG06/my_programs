@@ -1,0 +1,32 @@
+<!--
+Program 7:
+    Java Servlet program to perform operations on employee table
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Data Deletion</title>
+</head>
+<body>
+    <center>
+        <h1>Employee Data Deletion</h1>
+        <form action="UpdateData" method="post">
+            <table>
+                <tr>
+                    <td>Employee ID:</td>
+                    <td><input type="number" name="empid" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                    <input type="hidden" name="update" value="delete">
+                    <input type="submit" value="Delete">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <a href="../Employee">Back to home</a>
+    </center>
+</body>
+</html>
