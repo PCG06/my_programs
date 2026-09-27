@@ -19,18 +19,17 @@ Program 6:
         Statement st;
         Class.forName("org.apache.derby.jdbc.ClientDriver");
 
-        con = DriverManager.getConnection("jdbc:derby://localhost:1527/Collegedb");
+        con = DriverManager.getConnection("jdbc:derby://localhost:1527/src/StudentDisplay/database/student", "root", "1234");
         st = con.createStatement();
-        String query = "Select * from studentdb";
-        ResultSet rs = st.executeQuery(query);
+        ResultSet rs = st.executeQuery("SELECT * FROM student");
 
         while(rs.next()){
-        int regno = rs.getInt("stregno");
-        String name = rs.getString("stname");
-        String add = rs.getString("staddress");
-        String course = rs.getString("stcourse");
+        int regno = rs.getInt("regno");
+        String name = rs.getString("name");
+        String add = rs.getString("address");
+        String course = rs.getString("course");
     %>
-    <a href="student_details.jsp?rno=<%=regno%>&nm=<%=name%>&add=<%=add%>&cs=<%=course%>"><%=name%><br></a>
+    <a href="StudentDetails.jsp?rno=<%=regno%>&nm=<%=name%>&add=<%=add%>&cs=<%=course%>"><%=name%><br></a>
     <%
         }
     } catch (Exception e) {
